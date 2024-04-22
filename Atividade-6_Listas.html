@@ -1,0 +1,73 @@
+<script>
+    
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        
+    }
+
+
+    mostra("<h1>Atividade 6 - Listas</h1>");
+
+    mostra("<h3>Exercicio 1: Criando uma variavel lista chamada pessoa e colocando valores dentro dela</h3>")
+   
+    var pessoa =[];
+
+    pessoa[0] = "Anderson";
+    pessoa[1] = 42;
+    pessoa[2] = "1234678998";
+    pessoa[3] = 1.75;
+    pessoa[4] = true;    
+    
+
+    mostra( "Nome: " + pessoa[0] + "<br>" +
+            "Idade: " + pessoa[1] + "<br>" +
+            "CPF: " + pessoa[2] + "<br>" +
+            "Altura: " + pessoa[3] + "<br>" +
+            "Maior de Idade: " + pessoa[4]
+        );
+    
+    pulaLinha();
+
+    mostra("_____________________________________________________________________________________________________________");
+
+    mostra("<h3>Exercicio 2: Crie um programa que recebe uma quantidade máxima de 10 de letras e ao final exibe todas elas no console</h3>.<br>")
+
+    function recebeLetra(){
+        var letras = [];
+        var indice = 0
+        for(i=1; i <= 10; i++){            
+            letras [indice]= prompt ("Digite a Letra " + i);            
+            mostra(i + " letra: " + letras[indice] + "<br>");
+            pulaLinha();
+            indice ++;
+        }       
+        console.log(letras);  
+        
+       
+        mostra("<br>_____________________________________________________________________________________________________________");
+
+        
+        mostra("<h3>Exercicio 3: Considerando o exercício anterior, refaça ele criando uma lista que irá armazenar as letras e em seguida mostre no console: </h3><br>")
+
+        
+
+        mostra("a) A primeira letra digitada: " + letras[0] + "<br>");
+        console.log("a) A primeira letra digitada: " + letras[0]);
+        mostra("b) A quarta letra digitada: " + letras[3] + "<br>");
+        console.log("b) A quarta letra digitada: " + letras[3]);
+        mostra("c) A quinta letra digitada: " + letras[4] + "<br>");
+        console.log("c) A quinta letra digitada: " + letras[4]);
+        mostra("d) A última letra digitada: " + letras[9] + "<br>");
+        console.log("d) A última letra digitada: " + letras[9]);
+        mostra("e) O tamanho da lista criada " + letras.length);
+        console.log("e) O tamanho da lista criada: " + letras.length );
+    }
+
+    recebeLetra();
+
+
+</script>
