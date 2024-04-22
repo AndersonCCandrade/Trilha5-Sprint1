@@ -1,0 +1,43 @@
+<script>
+    function pulaLinha(){
+       document.write("<br><br>");
+   }
+
+   function mostra(frase){
+       document.write(frase);
+       pulaLinha();
+
+   }
+   
+   mostra("<h1>Atividade 8 - Fórmulas matemáticas</h1>")
+
+   mostra("<h3>Exercicio 1 : crie uma variável para cada figura geométrica, que armazene a fórmula que calcula a sua área.</h3>");
+
+   var base, altura, raio;
+   base = 15;
+   altura = 10;
+   raio = 8;
+
+   var retangulo = base * altura;
+   mostra("Fórmula para calcular a área do retangulo:<br> retangulo = base * altura")
+   var circulo = Math.round(Math.PI * (raio**2));
+   mostra("Fórmula para calcular a área do circulo:<br> circulo = Math.round(Math.PI * (raio**2))")
+   var trianguloRetangulo = (base * altura)/2;
+   mostra("Fórmula para calcular a área do triangulo retangulo:<br> trianguloRetangulo = (base * altura)/2")
+   
+   mostra("<h3>Exercicio 2 :  Com as fórmulas armazenadas nessas variáveis, atribua valores em váriaveis para as bases, alturas e raio das figuras e calcule.</h3>");
+
+   console.log("Base: " + base + " | Altura: " + altura + " | Raio: " + raio)
+   mostra("Base: " + base + " | Altura: " + altura + " | Raio: " + raio);
+
+   //impressão da area do retangulo    
+   console.log("A área do retangulo é: " + retangulo);
+   mostra("A área do retangulo é: " + retangulo);
+   //impressão da area do Circulo   
+   console.log("A área do circulo é: " + circulo);
+   mostra("A área do circulo é: " + circulo);
+   //impressão da area do Triangulo Retangulo        
+   console.log("A área do triangulo retangulo é: " + trianguloRetangulo);
+   mostra("A área do triangulo retangulo é: " + trianguloRetangulo)
+
+</script>
