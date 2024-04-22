@@ -1,0 +1,87 @@
+<script>
+    
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        
+    }
+
+    function parImpar(numero){
+       if ((numero%2)== 0){
+        return "par"
+       }else {
+        return "impar"
+       }     
+    }
+
+    mostra("<h1>Atividae 5 - Estruturas de Repetição</h1>");
+        
+    mostra("<h2>Exercicio 1<h2>");
+    
+    mostra("<h3>Exercicio a) Mostre os números de 1 a 50 na tela, dizendo se é par ou ímpar: </h3>");
+    
+
+    var contador = 0
+
+    while(contador<= 50){
+        mostra (contador + " é " + parImpar(contador));
+        pulaLinha();
+        contador ++;
+    }
+
+    mostra("_____________________________________________________________________________________________________________");
+
+    pulaLinha();
+    
+    mostra("<h3>Exercicio b) Mostre apenas os múltiplos de 3 entre 1 e 100: </h3>");
+
+    contador = 3
+
+    while(contador < 100){
+        mostra(contador + " - ");
+        contador = contador + 3;        
+    }
+    
+    pulaLinha();
+
+    mostra("_____________________________________________________________________________________________________________");
+
+    pulaLinha();
+    
+    mostra("<h3>Exercicio c) Mostre a seguinte sequência (de 100 até 0, pulando de dois em dois): </h3>");
+
+    contador = 100
+
+    while(contador >= 0){
+        mostra(contador + " - ");
+        contador = contador - 2;        
+    }
+
+    mostra("_____________________________________________________________________________________________________________");
+    pulaLinha();
+
+
+    mostra("<h2>Exercicio 2<h2>");
+    pulaLinha();
+
+    mostra("<h3>Exercicio d) Mostre a seguinte sequência (de 100 até 0, pulando de dois em dois):O jogo do PIM <br>" +
+           "é um jogo em que o Sílvio Santos pedia para os participantes de seu programa contar de 1 até 40 da seguinte forma:<br>" +
+           "a cada multiplo de 4 o jogador tinha que falar PIM </h3>");
+
+    pulaLinha();
+
+      
+    for(i=1; i <= 40; i++){
+        if((i%4)==0){
+            mostra("PIM" + ", ")
+        }else{
+            mostra(i + ", ")
+        }
+
+    }
+
+
+</script>
