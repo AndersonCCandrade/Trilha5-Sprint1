@@ -1,0 +1,33 @@
+<meta charset="UTF-8">
+
+<script>
+
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function idadePVotar(idade){
+        if (idade >= 18 && idade <= 70) {
+        mostra("Você possui " + idade + " anos, o seu voto é obrigatório")
+        } else if ((idade < 18 && idade >= 16) || idade > 70) {
+            mostra("Você possui " + idade + " anos, o seu voto é opcional")
+        } else if (idade < 16 && idade >= 0) {
+            mostra("Você possui " + idade + " anos, ainda não tem idade mínima para votar")
+        } else {
+            mostra("Digite uma idade válida")
+        }
+    }
+
+    mostra("<h1>Atividade 3 - Idade para Votar</h1>")
+    pulaLinha();
+
+    var idade = parseInt(prompt("Digite sua idade"));
+
+    idadePVotar(idade);
+   
+</script>
