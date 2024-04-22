@@ -1,0 +1,72 @@
+<script>
+
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+            document.write(frase);
+            pulaLinha();
+    }
+
+    function convenio(possui){
+        //verificando se tem convênio médico
+        if (possui) {
+            return("SIM");
+        } else {
+            return("NÃO");
+        }
+    }
+
+    function concatena(nome, telefone, convenioMedico, profissao, salario) {
+        var possui = convenio(convenioMedico)
+        //concatenando as variáveis
+        var profissional = (   "Nome: " + nome + "<br>" +
+                " Telefone: " + telefone + "<br>" +
+                " Possui convênio médico (SIM/NÃO): " + possui + "<br>" +
+                " Profissao: " + profissao + "<br>" +
+                " Salario: " + salario
+            );
+
+        mostra(profissional);
+        
+    } 
+
+    mostra("<h1>Atividade 1</h1>");
+    pulaLinha();
+    mostra("<h3>Exercicio 1: Criando Variaveis e Concatenando</h3>");
+
+
+    //Exercicio 1
+
+    //Variáveis que podem ser alteradas para concatenar o texto
+    
+    var nome = "Anderson";
+    var telefone = "11-99888.2525";
+    var convenioMedico  = false;
+    var profissao = "Gerente";
+    var salario = 25000.00;
+    
+    //chamada da função de concatenar
+    concatena(nome, telefone, convenioMedico, profissao, salario)        
+
+    pulaLinha();
+
+    //Exercicio 2
+
+    mostra("<h3>Exercicio 2: Lógica para armazenar dois números inteiros em duas variáveis e em seguida trocar o valor delas</h3>");
+    
+    var a = 10;
+    var b = 8;
+    mostra("Antes da troca");
+    mostra("a = " + a);
+    mostra("b = " + b);
+
+    var auxiliar = a; //para não perder o valor de a quando ele receber o valor de b
+    a = b;
+    b = auxiliar;
+    mostra("Depois da troca");
+    mostra("a = " + a);
+    mostra("b = " + b);     
+
+</script>
