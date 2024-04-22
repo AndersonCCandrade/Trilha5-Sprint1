@@ -1,0 +1,139 @@
+<script>
+
+
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+    }
+
+    function mediaDeFaturamentoPorCliente(cidade){
+        return Math.round(cidade[3]/cidade[2]);
+    }
+    
+    function mediaDeFaturamentoNasCidades(totalCliente, valorTotalDeFaturamento){
+        faturamento = Math.round(valorTotalDeFaturamento / totalCliente);
+        
+        mostra("Faturamento médio por cliente nas cinco cidades onde Jéssica mais tem clientes ativos é de R$ " + faturamento);
+
+    }
+    
+    function faturamentoSemFrete(cidade, frete)  {
+        var freteTotal; 
+        if (cidade[1]!= "SP"){
+            freteTotal = cidade[2] * frete[1]
+            var faturamentoSemFrete = cidade[3] - freteTotal;            
+            return faturamentoSemFrete;
+        }else {
+            freteTotal = cidade[2] * frete[0]
+            var faturamentoSemFrete = cidade[3] - freteTotal;            
+            return faturamentoSemFrete;
+        }
+    }
+
+    function lucroTotalPorCidade(cidade, custoDeProducao, frete) {
+        var faturamento = faturamentoSemFrete(cidade, frete);
+        var lucro = faturamento-(faturamento*custoDeProducao);
+        
+        return lucro
+    }
+   
+    mostra("<h1>Atividade 7 - Manipulando valores</h1><br>")
+    pulaLinha();
+
+    var cliBH = [];
+    var cliSP = [];
+    var cliBA = [];
+    var cliMS = [];
+    var cliPR = [];
+
+    cliBH[0] = "Belo Horizonte";
+    cliBH[1] = "BH";
+    cliBH[2] = 23;
+    cliBH[3] = 2950.00;
+
+    cliSP[0] = "São Paulo";
+    cliSP[1] = "SP";
+    cliSP[2] = 12;
+    cliSP[3] = 3950.00;
+
+    cliBA[0] = "Salvador";
+    cliBA[1] = "BA";
+    cliBA[2] = 11;
+    cliBA[3] = 1329.00;
+
+    cliMS[0] = "Campo Grande";
+    cliMS[1] = "MS";
+    cliMS[2] = 10;
+    cliMS[3] = 2412.00;
+
+    cliPR[0] = "Curitiba";
+    cliPR[1] = "PR";
+    cliPR[2] = 8;
+    cliPR[3] = 626.00;
+
+    
+
+    // Exercicio 1 - Some as quantidade desses clientes de Jéssica e concatene esse valor numa string
+    mostra("<h3>Exercicio 1 - Some as quantidade desses clientes de Jéssica e concatene esse valor numa string</h3><br>")    
+
+    var totalCliente = (cliBH[2] + cliSP[2] + cliBA[2] + cliMS[2] + cliPR[2]);
+
+    mostra("Nas capitais de BH, SP, BA, MS e PR, Jéssica possui " + totalCliente + " clientes.<br>")
+
+    pulaLinha();
+
+    // Exercicio 2 - Calcule a média de faturamento por cliente de cada cidade e obtenha como resultado strings
+    mostra("<h3>Exercicio 2 - Calcule a média de faturamento por cliente de cada cidade e obtenha como resultado numa strings</h3><br>")
+
+    mostra("Faturamento médio por cliente: <br>");
+    mostra("Belo Horizonte: R$ " + mediaDeFaturamentoPorCliente(cliBH) + "<br>");
+    mostra("São Paulo: R$ " + mediaDeFaturamentoPorCliente(cliSP) + "<br>");
+    mostra("Salvador: R$ " + mediaDeFaturamentoPorCliente(cliBA) + "<br>");
+    mostra("Campo Grande: R$ " + mediaDeFaturamentoPorCliente(cliMS) + "<br>");
+    mostra("Curitiba: R$ " + mediaDeFaturamentoPorCliente(cliPR) + "<br>");
+   
+    // Exercicio 3 - Calcule a média de faturamento por cliente, com base em todos os clientes dessas cinco cidades e atribua o valor numa string
+    mostra("<h3>Exercicio 3 - Calcule a média de faturamento por cliente, com base em todos os clientes dessas cinco cidades e atribua o valor numa string</h3><br>")
+    
+    
+    var valorTotalDeFaturamento = (cliBH[3] + cliSP[3] + cliBA[3] + cliMS[3] + cliPR[3]);    
+   
+    mediaDeFaturamentoNasCidades(totalCliente,valorTotalDeFaturamento);
+
+    pulaLinha();
+    pulaLinha();
+
+    // Exercicio 4 - Com base nessas informações, ela quer automatizar o cálculo de seu lucro por cidade. Crie as lógicas de cálculos que serão implementadas no programa para preencher a coluna lucro.
+    mostra("<h3>Exercicio 4 - Com base nessas informações, ela quer automatizar o cálculo de seu lucro por cidade. Crie as lógicas de cálculos que" 
+            + " serão implementadas no programa para preencher a coluna lucro.</h3><br>")
+
+    var frete = [];
+    frete[0] = 9.00;
+    frete[1] = 14.00
+    var custoDeProducao = 0.2;
+    
+    cliBH[4] = lucroTotalPorCidade(cliBH, custoDeProducao, frete)
+    cliSP[4] = lucroTotalPorCidade(cliSP, custoDeProducao, frete)
+    cliBA[4] = lucroTotalPorCidade(cliBA, custoDeProducao, frete)
+    cliMS[4] = lucroTotalPorCidade(cliMS, custoDeProducao, frete)
+    cliPR[4] = lucroTotalPorCidade(cliPR, custoDeProducao, frete)
+
+    
+    mostra("Cidade - Estado |  Quantidade de Clientes  |  Faturamento  |  Lucro por cidade<br>");
+    mostra(cliBH[0] + "-" + cliBH[1] + " | " + cliBH[2] + " | " + cliBH[3] + " | " + cliBH[4] + "<br>");
+    mostra(cliSP[0] + "-" + cliSP[1] + " | " + cliSP[2] + " | " + cliSP[3] + " | " + cliSP[4] + "<br>");
+    mostra(cliBA[0] + "-" + cliBA[1] + " | " + cliBA[2] + " | " + cliBA[3] + " | " + cliBA[4] + "<br>");
+    mostra(cliMS[0] + "-" + cliMS[1] + " | " + cliMS[2] + " | " + cliMS[3] + " | " + cliMS[4] + "<br>");
+    mostra(cliPR[0] + "-" + cliPR[1] + " | " + cliPR[2] + " | " + cliPR[3] + " | " + cliPR[4] + "<br>");
+
+    console.log("Cidade - Estado   |  Quantidade de Clientes  |  Faturamento  |  Lucro por cidade");
+    console.log(cliBH[0] + "-" + cliBH[1] + " |  " + cliBH[2] + "                      |  " + cliBH[3] + "         |  " + cliBH[4])
+    console.log(cliSP[0] + "-" + cliSP[1] + "      |  " + cliSP[2] + "                      |  " + cliSP[3] + "         |  " + cliSP[4])
+    console.log(cliBA[0] + "-" + cliBA[1] + "       |  " + cliBA[2] + "                      |  " + cliBA[3] + "         |  " + cliBA[4])
+    console.log(cliMS[0] + "-" + cliMS[1] + "   |  " + cliMS[2] + "                      |  " + cliMS[3] + "         |  " + cliMS[4])
+    console.log(cliPR[0] + "-" + cliPR[1] + "       |  " + cliPR[2] + "                       |  " + cliPR[3] + "          |  " + cliPR[4])
+
+</script>
