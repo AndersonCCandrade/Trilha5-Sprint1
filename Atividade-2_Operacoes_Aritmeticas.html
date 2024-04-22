@@ -1,0 +1,55 @@
+<script>
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+            document.write(frase);
+            pulaLinha();
+    }    
+
+    mostra("<h1>Atividade 2 - Operações aritméticas</h1>")
+    pulaLinha(),
+
+    mostra("<h3>Realizando as operações aritméticas abaixo e exibindo os resultados na tela através do console.log()</h3>");
+    pulaLinha(),
+    mostra( "let inteiro = 7 <br>" +
+            "let decimal = 3.5 <br>" + 
+            "let adicao = inteiro + decimal <br>" +
+            "let subtracao = inteiro - decimal <br>" +
+            "let potenciacao = (adicao - .5) ** 2 <br>" +
+            "let expressao1 = inteiro - 4 / 2 / 2 <br>" +
+            "let expressao2 = (inteiro - 4) / 2 <br>" +
+            "let expressao3 = 2 + subtracao * 2 <br>" +
+            "let expressao4 = (2 + subtracao) * 2 <br>" +
+            "let modulo1 = potenciacao % 2 <br>" +
+            "let modulo2 = (inteiro - 1) % 2 <br>"
+        );
+
+
+    let inteiro = 7;
+    let decimal = 3.5;
+
+    //criando as variaveis: pesquisei que let é variável de escopo de função e var é global.
+    let adicao = inteiro + decimal;// 7 + 3.5 = 10.5
+    let subtracao = inteiro - decimal; //7 - 3.5 = 3.5
+    let potenciacao = (adicao - .5) ** 2;// (10.5 - 0.5) = 10^2 = 100
+    let expressao1 = inteiro - 4 / 2 / 2; // 7 - 4/2/2 = 7 - 2/2 = 7 - 1 = 6
+    let expressao2 = (inteiro - 4) / 2; // (7 - 4)/2 = 3/2 = 1.5
+    let expressao3 = 2 + subtracao * 2; // 2 + 3.5 * 2 = 2 + 7 = 9
+    let expressao4 = (2 + subtracao) * 2; // (2 + 3.5) * 2 = 5.5 * 2 = 11
+    let modulo1 = potenciacao % 2; // 100 % 2 = 0
+    let modulo2 = (inteiro - 1) % 2; // (7 - 1) % 2 = 6 % 2 = 0
+
+    //verificar os resultados no console (para abrir o console tecle F12)
+    console.log(adicao); //10.5
+    console.log(subtracao); //3.5
+    console.log(potenciacao); //100
+    console.log(expressao1); //6
+    console.log(expressao2); //1.5
+    console.log(expressao3); //16
+    console.log(expressao4); //11
+    console.log(modulo1); //0
+    console.log(modulo2); //0
+
+</script>
