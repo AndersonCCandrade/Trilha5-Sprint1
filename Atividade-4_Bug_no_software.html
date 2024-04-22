@@ -1,0 +1,41 @@
+<meta charset="UTF-8">
+
+<script>
+     function pulaLinha(){
+        document.write("<br><br>");
+    }
+
+    function mostra(frase){
+        document.write(frase);
+        pulaLinha();
+
+    }
+    
+    function volumeEmMetrosCubicos(raioPiscina, alturaPiscina) {
+        //Primiro - Calcula a area da piscina
+        var areaPiscina = Math.round(Math.PI * Math.pow(raioPiscina,2));  
+        
+        //Segundo - Calcula o volume da piscina
+        var volumePiscina = (areaPiscina*alturaPiscina);
+        
+        //Terceiro - Calcular o valor de metros cubicos da piscina 1m = 1000L
+        var volumeDaPiscinaEmLitro = (volumePiscina * 1000);// O erro do codigo estava aqui nesta linha. 
+                                                            // O volume de retorno em 0,06L erra porque estavam dividindo o valor (volumePisina/metroCubico)                                                          
+        return (Math.round(volumeDaPiscinaEmLitro));
+        
+    }
+
+    mostra("<h1>Atividade 4 - Bug no Software</h1>");  
+   
+    var raioPiscina = 3.5;
+    var alturaPiscina = 1.6;
+
+    var volume = volumeEmMetrosCubicos(raioPiscina, alturaPiscina);
+
+    console.log("O valor real do volume de agua desta piscina é: " + volume);
+
+    
+    mostra("O valor real do volume de agua desta piscina é: " + volume );  
+    mostra("O erro do codigo estava no calculo do volume da piscina. Estava dividindo o volume pelo metro cubico em vez de multiplicar.");
+
+</script>  
