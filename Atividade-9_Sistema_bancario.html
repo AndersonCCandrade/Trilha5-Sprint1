@@ -1,0 +1,47 @@
+<script>
+
+    function pulaLinha(){
+        document.write("<br><br>");
+    }
+
+    function mostra(frase){
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function desbloquearCartão(desbloquear) {
+        if (desbloquear == "D") {
+            var chaveDeSeguranca = 9999
+            var senhaDigitada = parseInt(prompt("Digite a chave de segurança que foi enviada para seu e-mail cadastrado."))
+            if (senhaDigitada == chaveDeSeguranca) {
+                var senha = parseInt(prompt("Redefina sua senha"))
+                alert ("Senha redefinida com sucesso")
+                return senha               
+                
+            }else {
+                alert("Chave de segurança incorreta. Dirija-se até a agencia mais proxima.")
+            }
+
+        }else {
+            alert("Será um prazer atendê-la em uma agência")
+        }       
+    }
+    
+    mostra("<h1>Atividade 9 - Sistema Bancário</h1>");
+
+
+    var senha;
+
+    alert("Senha incorreta. Seu cartáo foi bloqueado.")
+
+    var opcao;
+
+    while((opcao != "A") && (opcao != "D")) {
+    var opcao = prompt("Se deseja ir a uma agência, digite “A” ou se deseja desbloquear com sua chave de segurança, digite “D”")
+    }
+
+    senha = desbloquearCartão(opcao); 
+        
+    console.log(senha);
+
+</script>
