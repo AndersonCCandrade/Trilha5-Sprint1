@@ -1,0 +1,123 @@
+
+<script>
+
+    function pulaLinha(){
+        document.write("<br>");
+    }
+
+    function mostra(frase){
+        document.write(frase);
+        pulaLinha();
+    }
+     
+    function custoViagem(destino,moedaReal,valorMoedaDoPais,passagenAeria,diariaHotel,guiaLocal){
+            if(destino == "Nova Zelândia"){
+                var siglaPais = " NZD "
+                    
+                }else if(destino == "Tailândia"){
+                    siglaPais = " THB ";
+
+                }else if(destino == "Costa Rica"){
+                    siglaPais = " CRC "
+                }else
+                siglaPais = " !! "
+    
+                    
+            console.log("Destino: " + destino);
+            console.log("Passagen aéreas: " + "R$ " + passagenAeria + " -" + siglaPais + (Math.round(passagenAeria*valorMoedaDoPais/moedaReal)));
+            console.log("Diária hotel: " + "R$ " + (Math.round(diariaHotel*moedaReal/valorMoedaDoPais)) + " -" +siglaPais + diariaHotel);
+            console.log("Guia local: " + "R$ " + (Math.round(guiaLocal*moedaReal/valorMoedaDoPais)) + " -" +siglaPais + guiaLocal);
+            console.log("");
+            console.log("");
+    }
+    
+    mostra("<h1>Atividade 11 : Agência de Viagens</h1>")
+
+
+    //Exercicio 1 = Crie o programa para a agência que irá converter os valores, de real para dólar neozelandês, baht tailandês e colón costarriquenho, e vice-versa. 
+
+    custoViagem("Nova Zelândia", 1.00,3.25,13996,79.15,200);
+    custoViagem("Tailândia", 0.15,1.00,9160,590,235);
+    custoViagem("Costa Rica", 0.0089,1.00,5119,2300,3150);
+
+    //Exercicio 2 = O programa que você está desenvolvendo para essa agência, também fará o envio automático de e-mails para os clientes,
+    //de acordo com que os agentes de viagens informarem ao software. Para testes, você espera receber alguns dados (que podem ser passados como parâmetros):
+
+    var nome = prompt("Qual o nome do Cliente?");
+    var destino = prompt("Qual o destino do Cliente?");    
+    var valorPassagens = parseFloat(prompt("Qual o valor das Passagens?")).toFixed(2);
+    var valorDiariaHotel = parseFloat(prompt("Qual valor da diária do Hotel?")).toFixed(2);
+    var valorGuiaLocal = parseFloat(prompt("Qual o valor do guia Local?")).toFixed(2);
+    var diaria = prompt("Quantos dias?");
+    var valortotaldiaria = diaria*valorDiariaHotel
+    var custoTotal =parseFloat(valorPassagens+valortotaldiaria+valorGuiaLocal).toFixed(2)
+
+    mostra("Nome do cliente: " + nome + "<br>" +
+    "Destino: " + destino + "<br>" +
+    "Valor das passagens: R$" + valorPassagens + "<br>" +
+    "Diária do hotel: R$" + valorDiariaHotel + "<br>" +
+    "Valor do guia local: R$" + valorGuiaLocal + "<br>" +
+    "Custo fixo dessa viagem para " + diaria + " dias: R$" + custoTotal);
+
+    //Exercico 3 - Na área de desenvolvimento, é comum recebermos pedidos para melhorias de features que já estão disponíveis para o usuário final. 
+
+    function emailCustoViagem(destino){
+        var nzd = [13996.00,121.76,307.69];
+        var thb = [9160.00,442.94,176.43];
+        var crc = [5119.00,102.36,140,19];
+    
+        
+        if(destino == "Nova Zelândia"){
+
+            mostra(" * Nova Zelândia *");
+            mostra("Passagens: R$ " + parseFloat(nzd[0]).toFixed(2));
+            mostra("Acomodação (5 dias) de R$ " + parseFloat(nzd[1]).toFixed(2));
+            mostra("O guia local custará R$ " + parseFloat(nzd[2]).toFixed(2));
+            mostra("Total R$ " + parseFloat((nzd[0] + nzd[1] + nzd[2])).toFixed(2));
+                                        
+        }else if(destino == "Tailândia"){
+
+            mostra(" * Tailândia *");
+            mostra("Passagens: R$ " + parseFloat(thb[0]).toFixed(2));
+            mostra("Acomodação (5 dias) de R$ " + parseFloat(thb[1]).toFixed(2));
+            mostra("O guia local custará R$ " + parseFloat(thb[2]).toFixed(2));
+            mostra("Total R$ " + parseFloat((thb[0] + thb[1] + thb[2])).toFixed(2));
+
+        }else if(destino == "Costa Rica"){
+
+            mostra(" * Costa Rica *");
+            mostra("Passagens: R$ " + parseFloat(crc[0]).toFixed(2));
+            mostra("Acomodação (5 dias) de R$ " + parseFloat(crc[1]).toFixed(2));
+            mostra("O guia local custará R$ " + parseFloat(crc[2]).toFixed(2));
+            mostra("Total R$ " + parseFloat((crc[0] + crc[1] + crc[2])).toFixed(2));
+
+        }else{
+            mostra("Não temos orçamento para " + destino);
+        }                    
+        
+    }
+    
+    function orcamentoDoDestino(destino){
+
+        var nome =prompt("Nome do cliente")
+        mostra("Olá, " + nome + "! É um prazer termos você como cliente e estamos ansiosos para que sua viagem possa ocorrer em breve!");
+        mostra("Estou te encaminhando os orçamentos!<br>");
+        for(i=0; i<destino.length; i++){
+            emailCustoViagem(destino[i]);
+            mostra("<br>");
+        }
+    }    
+
+    function orcamento(){
+        var destinos = [];
+        for(i=0; i < 3 ; i++){
+            destinos[i] = prompt("Entre com o " + (i + 1)+ " destino!");            
+        }
+        orcamentoDoDestino(destinos);
+    }
+   
+
+    orcamento();
+    
+
+</script>
